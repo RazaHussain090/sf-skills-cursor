@@ -1,0 +1,23 @@
+{
+  "name": "salesforce-development",
+  "version": "2.5.0",
+  "description": "Build Salesforce apps and agents using these core building blocks: metadata, Apex, deploy/retrieve, security, reporting, and generated installed-versus-available capability discovery.",
+  "author": {
+    "name": "Salesforce"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/forcedotcom/sf-skills/tree/main/plugins/builder/salesforce-development",
+  "repository": "https://github.com/forcedotcom/sf-skills.git",
+  "keywords": [
+    "salesforce",
+    "apex",
+    "flow",
+    "soql",
+    "metadata",
+    "deploy"
+  ],
+  "skills": "./skills/",
+  "agents": "./cursor-agents/",
+  "hooks": "./hooks/cursor-hooks.json",
+  "mcpServers": "./mcp.json"
+}

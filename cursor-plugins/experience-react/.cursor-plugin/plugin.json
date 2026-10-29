@@ -1,0 +1,22 @@
+{
+  "name": "experience-react",
+  "version": "0.2.1",
+  "description": "Build Salesforce React UI Bundle apps: scaffold a new React UI bundle SFDX starter project from a template, generate and edit pages, components, layout, styling, navigation, and branding with shadcn/ui and Tailwind CSS, configure ui-bundle metadata, host the app on a Digital Experience Site, and deploy it to an org. Use when creating or editing a React frontend under uiBundles/*/src for a Salesforce site \u2014 appLayout.tsx, routes.tsx, src/pages/, src/components/, or when starting, scaffolding, hosting, or deploying a React UI bundle app. Also scaffold, configure features for, host, and deploy Angular UI Bundle apps.",
+  "author": {
+    "name": "Salesforce"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "react",
+    "angular",
+    "ui bundle",
+    "uibundles",
+    "tailwind",
+    "shadcn",
+    "tsx",
+    "digital experience site",
+    "frontend",
+    "spa"
+  ],
+  "skills": "./skills/"
+}

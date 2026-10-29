@@ -1,0 +1,11 @@
+{
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": "node ./hooks/cursor-hook.cjs lwc",
+        "timeout": 30,
+        "matcher": "Write"
+      }
+    ]
+  }
+}

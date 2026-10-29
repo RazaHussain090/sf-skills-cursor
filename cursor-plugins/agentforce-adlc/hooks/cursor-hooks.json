@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "node ./hooks/cursor-hook.cjs guard",
+        "failClosed": true,
+        "timeout": 15,
+        "matcher": "[Ss][Ff]|[Ss][Ff][Dd][Xx]|DELETE|UPDATE"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "node ./hooks/cursor-hook.cjs agent",
+        "timeout": 15,
+        "matcher": "Write"
+      }
+    ]
+  }
+}

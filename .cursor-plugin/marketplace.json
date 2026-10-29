@@ -1,0 +1,328 @@
+{
+  "name": "salesforce",
+  "owner": {
+    "name": "Salesforce"
+  },
+  "metadata": {
+    "description": "Salesforce builder plugins for Cursor.",
+    "pluginRoot": "cursor-plugins"
+  },
+  "plugins": [
+    {
+      "name": "education-cloud",
+      "source": "education-cloud",
+      "description": "Configure Salesforce Education Cloud domains; generate academic years, semester terms, sessions and registration windows; migrate courses into LearningCourse records; configure multi-campus institutional hierarchies and BusinessProfile records; set up the packaged StudentRecruitmentAgent for prospective-student admissions FAQs, campus tours and enrollment.",
+      "keywords": [
+        "education",
+        "academic terms",
+        "semester dates",
+        "academic sessions",
+        "registration windows",
+        "LearningCourse",
+        "multi campus",
+        "institutional hierarchy",
+        "BusinessProfile",
+        "student enrollment",
+        "StudentRecruitmentAgent",
+        "education domains",
+        "LearningCourse migration",
+        "academic calendar"
+      ]
+    },
+    {
+      "name": "salesforce-development",
+      "source": "salesforce-development",
+      "description": "Foundation layer for Salesforce platform development \u2014 37 skills for environment validation, project scaffolding, scratch-org lifecycle, declarative metadata, Apex (author, run anonymous, test, debug), flow automation, SOQL, deploy/retrieve, manifest generation, security, reporting, and generated installed-versus-available capability discovery, plus org-context detection, a production deploy-safety gate, and a bundled Apex + SOQL language server (MCP). Plugin-only skills, not in the repo-root skills library: dx-project-create, platform-apex-anonymous-run, platform-capability-search, platform-deploy-validate, platform-destructive-deploy, platform-environment-validate, platform-lsp-integrate, platform-manifest-generate, platform-quick-deploy.",
+      "keywords": [
+        "salesforce",
+        "apex",
+        "flow",
+        "soql",
+        "metadata",
+        "deploy",
+        "security"
+      ]
+    },
+    {
+      "name": "salesforce-code-quality",
+      "source": "salesforce-code-quality",
+      "description": "Analyze and govern Salesforce code quality with Salesforce Code Analyzer and the Well-Architected framework: set up and troubleshoot Code Analyzer, run security/performance/best-practice/style scans across engines (PMD, ESLint, CPD, RetireJS, Flow, SFGE, ApexGuru), author custom Regex/PMD/ESLint rules, and run a multi-pillar Well-Architected architecture review with file:line evidence. Use for static analysis, code scanning, quality gates, custom lint rules, or a holistic architecture/Well-Architected audit \u2014 includes a read-only architecture-review agent. Plugin-only skills, not in the repo-root skills library: platform-architecture-analyze.",
+      "keywords": [
+        "salesforce code analyzer",
+        "static analysis",
+        "code scan",
+        "pmd",
+        "eslint",
+        "sfge",
+        "apexguru",
+        "retirejs",
+        "cpd",
+        "custom rule",
+        "quality gate",
+        "well-architected",
+        "architecture review",
+        "code quality"
+      ]
+    },
+    {
+      "name": "agentforce-adlc",
+      "source": "agentforce-adlc",
+      "description": "Author, discover, scaffold, deploy, test, secure, and optimize Agentforce .agent files",
+      "keywords": [
+        "agentforce",
+        "agent",
+        "adlc",
+        ".agent",
+        "voice agent",
+        "employee agent"
+      ]
+    },
+    {
+      "name": "salesforce-test-drive",
+      "source": "salesforce-test-drive",
+      "description": "Take a Salesforce capability for a test drive \u2014 pick a curated end-to-end build from a menu (e.g. a Service help agent delivered as a website chat widget) and watch it run start to finish. A guided, rehearsable walkthrough and learning engine that checks readiness, helps connect or provision an org, then choreographs the salesforce-development skills to build the real thing.",
+      "keywords": [
+        "guided walkthrough",
+        "rehearsable build",
+        "curated end-to-end build",
+        "capability learning engine",
+        "service help agent",
+        "website chat widget",
+        "readiness check"
+      ]
+    },
+    {
+      "name": "experience-lwc",
+      "source": "experience-lwc",
+      "description": "Build and validate Lightning Web Components (LWC): generate components with the PICKLES methodology and 165-point scoring, scaffold a fresh LWC from a Figma design or a PRD, wire-service and Jest test patterns, SLDS styling, WCAG/ARIA accessibility validation, and RTL/TypeScript migration. Use when creating, editing, or reviewing LWC components \u2014 touching lwc/**/*.js, .html, .css, or .js-meta.xml files, or asking about wire service, base components, SLDS, Jest LWC tests, or component accessibility. Also use when migrating legacy Aura components or Lightning Out apps to LWC.",
+      "keywords": [
+        "lwc",
+        "lightning web component",
+        "aura migration",
+        "lightning out",
+        "wire service",
+        "jest",
+        "slds",
+        "wcag",
+        "aria",
+        "figma",
+        "accessibility"
+      ]
+    },
+    {
+      "name": "experience-react",
+      "source": "experience-react",
+      "description": "Build Salesforce React UI Bundle apps: scaffold a new React UI bundle SFDX starter project from a template, generate and edit pages, components, layout, styling, navigation, and branding with shadcn/ui and Tailwind CSS, configure ui-bundle metadata, host the app on a Digital Experience Site, and deploy it to an org. Use when creating or editing a React frontend under uiBundles/*/src for a Salesforce site \u2014 appLayout.tsx, routes.tsx, src/pages/, src/components/, or when starting, scaffolding, hosting, or deploying a React UI bundle app. Also scaffold, configure features for, host, and deploy Angular UI Bundle apps.",
+      "keywords": [
+        "react",
+        "angular",
+        "ui bundle",
+        "tsx",
+        "tailwind",
+        "shadcn",
+        "digital experience site",
+        "sfdx starter"
+      ]
+    },
+    {
+      "name": "experience-cms",
+      "source": "experience-cms",
+      "description": "Author and source media for Experience Cloud content: apply CMS branding, generate CMS content, search existing Salesforce CMS or Data 360 media, and search and download ethically licensed stock imagery through Salesforce media-management tooling. Use when producing or branding CMS content for a Digital Experience site, locating an existing content asset, or finding a stock image for a page. Also render accessible CMS-managed images, video, audio, and documents in React experiences.",
+      "keywords": [
+        "cms",
+        "experience cloud",
+        "content",
+        "branding",
+        "media search",
+        "media rendering",
+        "stock image",
+        "digital experience"
+      ]
+    },
+    {
+      "name": "dx-org-lifecycle",
+      "source": "dx-org-lifecycle",
+      "description": "Administer Salesforce environments, Dev Hubs, and sandbox lifecycle: manage or inspect Dev Hub status and scratch allocation, configure and refresh sandboxes, run post-copy automation, provision trials, inspect expiration, assign permission sets, set the default target, and perform package post-install configuration. Use for environment setup and maintenance, especially Dev Hub administration, sandbox refresh, post-copy configuration, time-limited provisioning, access assignment, target selection, or managed-package setup.",
+      "keywords": [
+        "salesforce environment lifecycle",
+        "dev hub",
+        "scratch allocation",
+        "scratch limits",
+        "salesforce sandbox",
+        "sandbox refresh",
+        "sandbox post copy",
+        "post copy config",
+        "temporary environment provisioning",
+        "expiration check",
+        "permission set assignment",
+        "default target",
+        "target selection",
+        "package post install"
+      ]
+    },
+    {
+      "name": "dx-devops",
+      "source": "dx-devops",
+      "description": "Operate Salesforce DevOps Center pipelines and work items and configure their automated testing: manage pipeline definitions and work items, configure test pipelines and suite assignments, run stage test suites, and analyze test failures. Use for DevOps Center pipeline administration, work-item tracking, test-stage configuration, suite execution, quality-gate reruns, or pipeline failure analysis.",
+      "keywords": [
+        "devops center",
+        "devops pipeline",
+        "work item",
+        "test pipeline",
+        "test suite",
+        "suite assignment",
+        "quality gate",
+        "pipeline test failure",
+        "pipeline stage"
+      ]
+    },
+    {
+      "name": "platform-trust-security",
+      "source": "platform-trust-security",
+      "description": "Protect and govern Salesforce data with Shield Platform Encryption and Salesforce Archive: configure encrypted fields and key-management options, search or restore archived records, monitor ArchiveActivity jobs, analyze retained storage, and mask or erase archived data. Use for encryption metadata and guidance or trusted-services archival and retention workflows.",
+      "keywords": [
+        "shield platform encryption",
+        "encrypted field",
+        "encryption key management",
+        "byok",
+        "external key management",
+        "trusted services archival",
+        "archived records",
+        "archiveactivity",
+        "archival retention",
+        "archived pii"
+      ]
+    },
+    {
+      "name": "commerce-b2b",
+      "source": "commerce-b2b",
+      "description": "Customize an existing Salesforce B2B Commerce storefront with the Salesforce Open Code storefront library: bring the official open-source library into site metadata, map out-of-the-box commerce definitions to storefront equivalents, and swap selected definitions. Use for B2B Commerce library integration, mapping lookup, or replacement work in storefront site metadata.",
+      "keywords": [
+        "salesforce b2b commerce",
+        "b2b storefront",
+        "b2b open code",
+        "b2b open source library",
+        "commerce definition mapping",
+        "ootb mapping",
+        "site definition replacement",
+        "storefront site metadata"
+      ]
+    },
+    {
+      "name": "mobile-development",
+      "source": "mobile-development",
+      "description": "Build and extend native Salesforce mobile apps on iOS and Android. Bundles skills for scaffolding new Mobile SDK apps, adding Mobile SDK to existing apps, Salesforce authentication, offline storage (SmartStore) and sync (MobileSync), biometric login, native device capabilities, and embedding Agentforce.",
+      "keywords": [
+        "salesforce mobile sdk",
+        "mobile sdk scaffolding",
+        "salesforce mobile authentication",
+        "smartstore offline storage",
+        "mobilesync",
+        "biometric login",
+        "native device capability",
+        "barcode scanner",
+        "geolocation",
+        "nfc",
+        "document scanner",
+        "mobile offline",
+        "komaci",
+        "offline priming",
+        "komaci graph analyzer",
+        "mobileappplus",
+        "fieldservicemobile",
+        "agentforce mobile sdk",
+        "embed agentforce mobile"
+      ]
+    },
+    {
+      "name": "platform-observability",
+      "source": "platform-observability",
+      "description": "Configure Salesforce tracing metadata: generate EventSettings that turn TraceSpanEvent publishing on or off, and generate AgentforcePlatformTracingSettings that forward execution spans into the required Data Cloud ingestion pipeline. Use for API 68 tracing preferences and the two singleton metadata types that control span publication and ingestion.",
+      "keywords": [
+        "platformtracing",
+        "tracespanevent",
+        "enableplatformtracing",
+        "event settings tracing",
+        "agentforceplatformtracingsettings",
+        "execution spans",
+        "platform observability",
+        "span ingestion"
+      ]
+    },
+    {
+      "name": "dx-isv-partner",
+      "source": "dx-isv-partner",
+      "description": "Support focused Salesforce ISV and partner operations: submit AppAnalyticsQueryRequest records for PackageUsageSummary or SubscriberSnapshot data, configure AppAnalyticsSettings, and set TransactableMarketplaceReceivePartnerOffers for partner-offer reception. Use for managed-package telemetry requests or partner-offer preference changes.",
+      "keywords": [
+        "salesforce isv",
+        "appexchange partner",
+        "appanalyticsqueryrequest",
+        "packageusagesummary",
+        "subscriber snapshot",
+        "managed package telemetry",
+        "transactable marketplace",
+        "transactable marketplace receive partner offers",
+        "partner offer preference"
+      ]
+    },
+    {
+      "name": "service-engagement",
+      "source": "service-engagement",
+      "description": "Configure Service Cloud digital engagement channels: set up messaging and web chat channels, configure channel deployments, and connect an existing Agentforce channel binding. Use when setting up messaging, web chat, digital engagement deployments, or messaging-site integration.",
+      "keywords": [
+        "digital engagement",
+        "messaging channel",
+        "web chat",
+        "engagement channel",
+        "channel deployment",
+        "MIAW"
+      ]
+    },
+    {
+      "name": "integration",
+      "source": "integration",
+      "description": "Build Salesforce integrations and event-driven flows: generate connectivity (Named Credentials, External Services, REST/SOAP callouts), configure a Connected App or External Client App for secure OAuth, configure Change Data Capture, and configure event subscriptions. Use when wiring external systems or event-driven architecture \u2014 connectivity, connected apps and OAuth, CDC, or event subscription configuration.",
+      "keywords": [
+        "integration",
+        "connectivity",
+        "connected app",
+        "oauth",
+        "external client app",
+        "change data capture",
+        "cdc",
+        "event subscription",
+        "event driven"
+      ]
+    },
+    {
+      "name": "platform-lightning-widgets",
+      "source": "platform-lightning-widgets",
+      "description": "Build Lightning Types and Agentforce action widgets: generate type definitions, coordinate Apex-backed widgets and MCP tool result widgets, and generate rich display widgets for these actions. Use when defining a Lightning Type or coordinating its widget for an Agentforce/MCP action.",
+      "keywords": [
+        "lightning type",
+        "widget",
+        "mcp tool widget",
+        "action widget",
+        "rich display",
+        "HXL widget"
+      ]
+    },
+    {
+      "name": "service-omni",
+      "source": "service-omni",
+      "description": "Configure Salesforce Omni-Channel work routing: queues, presence statuses, agent capacity, Case and VoiceCall routing flows, skills-based and attribute routing, agent work sharing, classic Omni Supervisor surface setup, and read-only Omni Command Center readiness analysis.",
+      "keywords": [
+        "omni routing",
+        "queue routing",
+        "presence status",
+        "agent capacity",
+        "skills-based routing",
+        "omni supervisor",
+        "attribute routing",
+        "agent work sharing",
+        "route Cases",
+        "route VoiceCall"
+      ]
+    }
+  ]
+}

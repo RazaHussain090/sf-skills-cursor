@@ -1,0 +1,20 @@
+{
+  "name": "experience-cms",
+  "version": "0.2.1",
+  "description": "Author and source media for Experience Cloud content: apply CMS branding, generate CMS content, search existing Salesforce CMS or Data 360 media, and search and download ethically licensed stock imagery through Salesforce media-management tooling. Use when producing or branding CMS content for a Digital Experience site, locating an existing content asset, or finding a stock image for a page. Also render accessible CMS-managed images, video, audio, and documents in React experiences.",
+  "author": {
+    "name": "Salesforce"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "cms",
+    "experience cloud",
+    "content",
+    "branding",
+    "media search",
+    "media rendering",
+    "stock image",
+    "digital experience"
+  ],
+  "skills": "./skills/"
+}

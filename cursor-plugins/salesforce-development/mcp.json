@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "salesforce-api-context": {
+      "command": "node",
+      "args": ["${CURSOR_PLUGIN_ROOT}/scripts/sf-mcp-proxy.bundled.js", "salesforce-api-context"]
+    },
+    "salesforce-metadata-experts": {
+      "command": "node",
+      "args": ["${CURSOR_PLUGIN_ROOT}/scripts/sf-mcp-proxy.bundled.js", "metadata-experts"]
+    },
+    "salesforce-lsp": {
+      "command": "node",
+      "args": ["${CURSOR_PLUGIN_ROOT}/bin/sf-lsp-host.bundled.js"]
+    }
+  }
+}

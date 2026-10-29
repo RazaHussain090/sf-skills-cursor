@@ -1,0 +1,18 @@
+{
+  "name": "agentforce-adlc",
+  "version": "0.13.0",
+  "description": "Agentforce Agent Development Life Cycle \u2014 author, discover, scaffold, deploy, test, secure, and optimize .agent files",
+  "author": {
+    "name": "Salesforce"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "agentforce",
+    "agent-script",
+    "salesforce",
+    "adlc"
+  ],
+  "skills": "./skills/",
+  "agents": "./cursor-agents/",
+  "hooks": "./hooks/cursor-hooks.json"
+}
