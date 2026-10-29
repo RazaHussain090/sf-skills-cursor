@@ -9,7 +9,7 @@ Cursor reads [`.cursor-plugin/marketplace.json`](../.cursor-plugin/marketplace.j
 1. Open **Customize** in the sidebar.
 2. Choose **Add → From Local Repo**.
 3. Select this repository root, the directory that contains `.cursor-plugin/marketplace.json`, and confirm.
-4. Open **Browse Marketplace**, find the Salesforce marketplace, and install the plugins you want. Start with **salesforce-development**. Install **salesforce-test-drive** only after that one.
+4. Open **Browse Marketplace**, find the Salesforce marketplace, and install the plugins you want. Start with **salesforce-development**. Install **salesforce-test-drive** only after that one. The service help agent drive also needs **agentforce-adlc**.
 
 Cursor caches the marketplace from the checkout. After you pull, uninstall the plugins, remove the local marketplace, and add the repo again.
 
@@ -20,7 +20,7 @@ Then work in a Salesforce project the way you already would:
 - Ask for the task in chat. Installed skills are available to the agent. You do not paste skill files in.
 - A production deploy is blocked until you reply with exactly `confirm production deploy to <alias>`, using the org alias from the denial, and the same deploy is run again.
 - A scratch org or sandbox deploy does not need that phrase.
-- The Test Drive `start` command walks through a rehearsed build. Its text tells the agent to stop when Salesforce Development is not installed. That instruction is not a hook.
+- The Test Drive `start` command walks through a rehearsed build. Run `/salesforce-test-drive:start` for the menu, or `/salesforce-test-drive:start service-help-agent` to launch that drive. Its text tells the agent to stop when Salesforce Development is not installed. That instruction is not a hook. Install, the catalog, and the handoff are in [`salesforce-test-drive/README.md`](salesforce-test-drive/README.md). The repository root [`README.md`](../README.md) has the same install and start steps.
 
 ## Maintainers
 
