@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>On_Route</fullName>
+    <booleanFilter>1 OR 2</booleanFilter>
+    <columns>NAME</columns>
+    <columns>Customer_Name__c</columns>
+    <columns>Status__c</columns>
+    <columns>Priority__c</columns>
+    <columns>Scheduled_Date__c</columns>
+    <columns>Driver__c</columns>
+    <columns>Location_Updated_On__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>In Transit</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Attempted</value>
+    </filters>
+    <label>On Route</label>
+</ListView>

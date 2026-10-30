@@ -1,0 +1,67 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_01a" },
+      "Delivery__c": "@Delivery_01",
+      "Product__c": "@Product_Towels",
+      "Quantity__c": 4,
+      "Status__c": "To Pick"
+    },
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_01b" },
+      "Delivery__c": "@Delivery_01",
+      "Product__c": "@Product_Coffee",
+      "Quantity__c": 2,
+      "Status__c": "To Pick"
+    },
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_02" },
+      "Delivery__c": "@Delivery_02",
+      "Product__c": "@Product_Gloves",
+      "Quantity__c": 6,
+      "Status__c": "Picked"
+    },
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_04" },
+      "Delivery__c": "@Delivery_04",
+      "Product__c": "@Product_Screws",
+      "Quantity__c": 8,
+      "Status__c": "Packed"
+    },
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_05" },
+      "Delivery__c": "@Delivery_05",
+      "Product__c": "@Product_Paper",
+      "Quantity__c": 10,
+      "Status__c": "Packed"
+    },
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_06" },
+      "Delivery__c": "@Delivery_06",
+      "Product__c": "@Product_Bibs",
+      "Quantity__c": 12,
+      "Status__c": "Packed"
+    },
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_07" },
+      "Delivery__c": "@Delivery_07",
+      "Product__c": "@Product_Notebooks",
+      "Quantity__c": 5,
+      "Status__c": "Packed"
+    },
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_08" },
+      "Delivery__c": "@Delivery_08",
+      "Product__c": "@Product_Gloves",
+      "Quantity__c": 4,
+      "Status__c": "Packed"
+    },
+    {
+      "attributes": { "type": "Delivery_Line__c", "referenceId": "Line_10" },
+      "Delivery__c": "@Delivery_10",
+      "Product__c": "@Product_Coffee",
+      "Quantity__c": 3,
+      "Status__c": "To Pick"
+    }
+  ]
+}

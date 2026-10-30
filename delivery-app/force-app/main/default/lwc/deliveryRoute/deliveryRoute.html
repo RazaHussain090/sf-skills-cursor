@@ -1,0 +1,113 @@
+<template>
+    <lightning-card title="Route" icon-name="utility:location">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_small">
+                The driver uses this page on their phone. Share location keeps the pin moving while the page stays open.
+                Attempt delivery means they tried and it is not complete. Mark delivered when it is done.
+            </p>
+
+            <template lwc:if={errorMessage}>
+                <div class="slds-text-color_error slds-m-bottom_small">{errorMessage}</div>
+            </template>
+
+            <template lwc:if={isLoading}>
+                <p>Loading route.</p>
+            </template>
+
+            <template lwc:if={showStart}>
+                <lightning-button
+                    label="Start route"
+                    variant="brand"
+                    onclick={startRoute}
+                    disabled={isBusy}>
+                </lightning-button>
+            </template>
+
+            <template lwc:if={onRoute}>
+                <p class="slds-m-bottom_small">
+                    Status is {status}.
+                    <template lwc:if={driverName}> Driver is {driverName}.</template>
+                </p>
+                <template lwc:if={needsDriver}>
+                    <p class="slds-m-bottom_small">Assign a driver before sharing a location.</p>
+                </template>
+                <template lwc:if={attemptedOn}>
+                    <p class="slds-m-bottom_small">
+                        Attempted <lightning-formatted-date-time value={attemptedOn}></lightning-formatted-date-time>.
+                    </p>
+                </template>
+
+                <div class="slds-m-bottom_small">
+                    <lightning-button
+                        label={shareLabel}
+                        variant="brand"
+                        onclick={toggleShare}
+                        disabled={isBusy}
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+                    <lightning-button
+                        label="Navigate to dropoff"
+                        onclick={navigateDropoff}
+                        class="slds-m-right_x-small">
+                    </lightning-button>
+                    <lightning-button
+                        label="Navigate to pickup"
+                        onclick={navigatePickup}>
+                    </lightning-button>
+                </div>
+
+                <template lwc:if={hasLocation}>
+                    <p class="slds-m-bottom_x-small">
+                        Last location {latitudeText}, {longitudeText}.
+                        Updated <lightning-formatted-date-time value={locationUpdatedOn}></lightning-formatted-date-time>.
+                    </p>
+                    <iframe class="map" title="Driver location map" src={mapUrl}></iframe>
+                    <p class="slds-m-top_x-small">
+                        <a href={pinUrl} target="_blank" rel="noopener noreferrer">Open this pin in maps</a>
+                    </p>
+                </template>
+                <template lwc:if={waitingForLocation}>
+                    <p class="slds-m-bottom_small">No location shared yet. On the driver's phone, open this delivery and tap Share location.</p>
+                </template>
+
+                <div class="slds-m-top_small">
+                    <template lwc:if={canAttempt}>
+                        <lightning-button
+                            label="Attempt delivery"
+                            onclick={attemptDelivery}
+                            disabled={isBusy}
+                            class="slds-m-right_x-small">
+                        </lightning-button>
+                    </template>
+                    <template lwc:if={canResume}>
+                        <lightning-button
+                            label="Back to in transit"
+                            onclick={resumeRoute}
+                            disabled={isBusy}
+                            class="slds-m-right_x-small">
+                        </lightning-button>
+                    </template>
+                    <lightning-button
+                        label="Mark delivered"
+                        variant="brand"
+                        onclick={markDelivered}
+                        disabled={isBusy}>
+                    </lightning-button>
+                </div>
+            </template>
+
+            <template lwc:if={isOther}>
+                <p>Status is {status}.</p>
+            </template>
+
+            <template lwc:if={isDelivered}>
+                <p>
+                    Delivered
+                    <template lwc:if={deliveredOn}>
+                        <lightning-formatted-date-time value={deliveredOn}></lightning-formatted-date-time>
+                    </template>.
+                </p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

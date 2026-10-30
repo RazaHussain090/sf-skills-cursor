@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>To_Pick</fullName>
+    <columns>NAME</columns>
+    <columns>Delivery__c</columns>
+    <columns>Product__c</columns>
+    <columns>Quantity__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>To Pick</value>
+    </filters>
+    <label>To Pick</label>
+</ListView>

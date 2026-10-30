@@ -1,0 +1,53 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Product__c", "referenceId": "Product_Towels" },
+      "Name": "Paper Towels",
+      "SKU__c": "PT-100",
+      "Unit__c": "Case",
+      "Description__c": "Household paper towels."
+    },
+    {
+      "attributes": { "type": "Product__c", "referenceId": "Product_Gloves" },
+      "Name": "Exam Gloves",
+      "SKU__c": "GL-200",
+      "Unit__c": "Box",
+      "Description__c": "Nitrile exam gloves."
+    },
+    {
+      "attributes": { "type": "Product__c", "referenceId": "Product_Screws" },
+      "Name": "Screws Assorted",
+      "SKU__c": "HW-400",
+      "Unit__c": "Case",
+      "Description__c": "Mixed hardware screws."
+    },
+    {
+      "attributes": { "type": "Product__c", "referenceId": "Product_Paper" },
+      "Name": "Copy Paper",
+      "SKU__c": "BK-500",
+      "Unit__c": "Case",
+      "Description__c": "Letter-size copy paper."
+    },
+    {
+      "attributes": { "type": "Product__c", "referenceId": "Product_Notebooks" },
+      "Name": "Notebooks",
+      "SKU__c": "BK-510",
+      "Unit__c": "Case",
+      "Description__c": "Ruled notebooks."
+    },
+    {
+      "attributes": { "type": "Product__c", "referenceId": "Product_Bibs" },
+      "Name": "Dental Bibs",
+      "SKU__c": "DN-600",
+      "Unit__c": "Box",
+      "Description__c": "Disposable dental bibs."
+    },
+    {
+      "attributes": { "type": "Product__c", "referenceId": "Product_Coffee" },
+      "Name": "Coffee Beans",
+      "SKU__c": "CF-700",
+      "Unit__c": "Case",
+      "Description__c": "Whole bean coffee."
+    }
+  ]
+}

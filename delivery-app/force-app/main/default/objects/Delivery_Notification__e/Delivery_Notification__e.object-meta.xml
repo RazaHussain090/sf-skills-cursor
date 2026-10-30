@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Published when a delivery status changes or a driver reports a location.</description>
+    <eventType>HighVolume</eventType>
+    <label>Delivery Notification</label>
+    <pluralLabel>Delivery Notifications</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

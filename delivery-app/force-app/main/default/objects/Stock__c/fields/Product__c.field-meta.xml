@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Product</label>
+    <referenceTo>Product__c</referenceTo>
+    <relationshipLabel>Stock</relationshipLabel>
+    <relationshipName>Stock_Levels</relationshipName>
+    <required>true</required>
+    <type>Lookup</type>
+</CustomField>

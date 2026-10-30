@@ -1,0 +1,127 @@
+<template>
+    <lightning-card title="Place an order" icon-name="standard:orders">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <template if:true={errorMessage}>
+                <div class="slds-notify slds-notify_alert slds-theme_error slds-m-bottom_small" role="alert">
+                    {errorMessage}
+                </div>
+            </template>
+            <template if:true={message}>
+                <div class="slds-notify slds-notify_alert slds-theme_success slds-m-bottom_small" role="status">
+                    {message}
+                </div>
+            </template>
+
+            <h2 class="slds-text-heading_small slds-m-bottom_x-small">On the shelf</h2>
+            <p class="slds-m-bottom_small slds-text-color_weak">Choose a quantity and add it to this order. The first item chooses the warehouse.</p>
+            <template if:true={hasCatalog}>
+                <ul class="catalog">
+                    <template for:each={catalogRows} for:item="item">
+                        <li key={item.productId} class="catalog-row">
+                            <div>
+                                <div class="slds-text-heading_small">{item.productName}</div>
+                                <div class="slds-text-body_small">{item.unit}</div>
+                                <div class="slds-text-body_small">{item.rowNote}</div>
+                            </div>
+                            <lightning-input
+                                type="number"
+                                label="Quantity"
+                                variant="label-hidden"
+                                min="1"
+                                step="1"
+                                data-id={item.productId}
+                                value={item.quantity}
+                                disabled={item.blocked}
+                                onchange={handleQuantity}
+                            ></lightning-input>
+                            <lightning-button
+                                label="Add"
+                                data-id={item.productId}
+                                disabled={item.blocked}
+                                onclick={addToCart}
+                            ></lightning-button>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={hasCatalog}>
+                <p>Nothing is on hand at an open warehouse.</p>
+            </template>
+
+            <h2 class="slds-text-heading_small slds-m-top_medium slds-m-bottom_x-small">This order</h2>
+            <template if:true={hasCart}>
+                <p class="slds-m-bottom_x-small">Leaving from {cartWarehouseName}.</p>
+                <ul class="catalog">
+                    <template for:each={cart} for:item="item">
+                        <li key={item.productId} class="catalog-row">
+                            <div>
+                                <div>{item.productName}</div>
+                                <div class="slds-text-body_small">{item.quantity} {item.unit}</div>
+                            </div>
+                            <lightning-button
+                                label="Remove"
+                                variant="base"
+                                data-id={item.productId}
+                                onclick={removeFromCart}
+                            ></lightning-button>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={hasCart}>
+                <p class="slds-m-bottom_small">No products added yet.</p>
+            </template>
+
+            <div class="slds-grid slds-wrap slds-gutters_small">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <lightning-input label="Customer name" name="customerName" value={customerName} required onchange={handleField}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <lightning-input type="tel" label="Phone" name="phone" value={phone} onchange={handleField}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1">
+                    <lightning-input label="Dropoff address" name="dropoffAddress" value={dropoffAddress} required onchange={handleField}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <lightning-input type="date" label="Date" name="scheduledDate" value={scheduledDate} required onchange={handleField}></lightning-input>
+                </div>
+            </div>
+            <div class="slds-m-top_small">
+                <lightning-button variant="brand" label={placeLabel} disabled={isPlacing} onclick={place}></lightning-button>
+            </div>
+
+            <template if:true={placedOrder}>
+                <div class="slds-box slds-m-top_medium">
+                    <p class="slds-text-heading_small">Keep {placedOrder.deliveryNumber}</p>
+                    <p>{placedOrder.warehouseName} will pick this for {placedOrder.dropoffAddress} on {placedOrder.scheduledDate}.</p>
+                    <ul>
+                        <template for:each={placedOrder.lines} for:item="line">
+                            <li key={line.productName}>{line.quantity} {line.unit} of {line.productName}</li>
+                        </template>
+                    </ul>
+                </div>
+            </template>
+
+            <h2 class="slds-text-heading_small slds-m-top_large slds-m-bottom_x-small">Look up an order</h2>
+            <div class="lookup">
+                <lightning-input label="Delivery number" name="lookupNumber" value={lookupNumber} placeholder="DLV-0004" onchange={handleField}></lightning-input>
+                <lightning-button label={lookupLabel} disabled={isLooking} onclick={lookup}></lightning-button>
+            </div>
+            <template if:true={lookupError}>
+                <p class="slds-text-color_error slds-m-top_x-small" role="alert">{lookupError}</p>
+            </template>
+            <template if:true={lookupResult}>
+                <div class="slds-box slds-m-top_small">
+                    <p class="slds-text-heading_small">{lookupResult.deliveryNumber}</p>
+                    <p>Status: {lookupResult.status}</p>
+                    <p>Fulfillment: {lookupResult.fulfillment}</p>
+                    <p>Date: {lookupResult.scheduledDate}</p>
+                    <p>Dropoff: {lookupResult.dropoffAddress}</p>
+                    <template if:true={locationText}>
+                        <p>Last location: {locationText}</p>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rush</fullName>
+    <columns>NAME</columns>
+    <columns>Customer_Name__c</columns>
+    <columns>Status__c</columns>
+    <columns>Scheduled_Date__c</columns>
+    <columns>Driver__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Priority__c</field>
+        <operation>equals</operation>
+        <value>Rush</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Delivered</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled</value>
+    </filters>
+    <label>Rush</label>
+</ListView>

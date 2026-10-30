@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Store, pick, and pack an order, then schedule and track the delivery.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Delivery Management</label>
+    <navType>Standard</navType>
+    <tabs>Place_Order</tabs>
+    <tabs>Delivery__c</tabs>
+    <tabs>Driver__c</tabs>
+    <tabs>Warehouse__c</tabs>
+    <tabs>Product__c</tabs>
+    <tabs>Stock__c</tabs>
+    <tabs>Delivery_Line__c</tabs>
+    <tabs>Delivery_Assistant</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Delivery_Management_UtilityBar</utilityBar>
+</CustomApplication>

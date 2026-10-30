@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <compactLayoutAssignment>Delivery_Line_Compact</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A product and quantity to pick, pack, and send on one delivery.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Delivery Line</label>
+    <nameField>
+        <displayFormat>LINE-{0000}</displayFormat>
+        <label>Line Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Delivery Lines</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Delivery__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Quantity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Delivery__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Quantity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

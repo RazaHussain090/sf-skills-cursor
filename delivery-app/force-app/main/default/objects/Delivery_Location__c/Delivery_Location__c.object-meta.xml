@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A GPS point sent by a driver's device for an in-transit delivery.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <label>Delivery Location</label>
+    <nameField>
+        <displayFormat>LOC-{0000}</displayFormat>
+        <label>Location Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Delivery Locations</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

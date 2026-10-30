@@ -1,0 +1,16 @@
+{
+  "orgName": "Delivery Management Agent",
+  "edition": "Developer",
+  "features": ["Einstein1AIPlatform"],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "agentPlatformSettings": {
+      "enableAgentPlatform": true
+    },
+    "einsteinGptSettings": {
+      "enableEinsteinGptPlatform": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "sobject": "Driver__c",
+    "saveRefs": true,
+    "resolveRefs": false,
+    "files": ["drivers.json"]
+  },
+  {
+    "sobject": "Warehouse__c",
+    "saveRefs": true,
+    "resolveRefs": false,
+    "files": ["warehouses.json"]
+  },
+  {
+    "sobject": "Product__c",
+    "saveRefs": true,
+    "resolveRefs": false,
+    "files": ["products.json"]
+  },
+  {
+    "sobject": "Delivery__c",
+    "saveRefs": true,
+    "resolveRefs": true,
+    "files": ["deliveries.json"]
+  },
+  {
+    "sobject": "Stock__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["stock.json"]
+  },
+  {
+    "sobject": "Delivery_Line__c",
+    "saveRefs": false,
+    "resolveRefs": true,
+    "files": ["delivery-lines.json"]
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Driver__c", "referenceId": "Driver_Alex" },
+      "Name": "Alex Rivera",
+      "Phone__c": "555-0101",
+      "Email__c": "alex.rivera@example.com",
+      "Status__c": "Available",
+      "Vehicle__c": "Van 12"
+    },
+    {
+      "attributes": { "type": "Driver__c", "referenceId": "Driver_Jordan" },
+      "Name": "Jordan Lee",
+      "Phone__c": "555-0102",
+      "Email__c": "jordan.lee@example.com",
+      "Status__c": "On Route",
+      "Vehicle__c": "Truck 4"
+    },
+    {
+      "attributes": { "type": "Driver__c", "referenceId": "Driver_Sam" },
+      "Name": "Sam Patel",
+      "Phone__c": "555-0103",
+      "Email__c": "sam.patel@example.com",
+      "Status__c": "Available",
+      "Vehicle__c": "Bike 7"
+    },
+    {
+      "attributes": { "type": "Driver__c", "referenceId": "Driver_Riley" },
+      "Name": "Riley Chen",
+      "Phone__c": "555-0104",
+      "Email__c": "riley.chen@example.com",
+      "Status__c": "Off Duty",
+      "Vehicle__c": "Van 3"
+    },
+    {
+      "attributes": { "type": "Driver__c", "referenceId": "Driver_Morgan" },
+      "Name": "Morgan Blake",
+      "Phone__c": "555-0105",
+      "Email__c": "morgan.blake@example.com",
+      "Status__c": "On Route",
+      "Vehicle__c": "Truck 9"
+    }
+  ]
+}

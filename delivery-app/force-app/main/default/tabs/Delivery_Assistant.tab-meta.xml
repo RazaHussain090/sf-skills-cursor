@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Look up a delivery for a customer question. Read only.</description>
+    <frameHeight>600</frameHeight>
+    <label>Delivery Assistant</label>
+    <motif>Custom18: Form</motif>
+    <url>/flow/Delivery_Assistant</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

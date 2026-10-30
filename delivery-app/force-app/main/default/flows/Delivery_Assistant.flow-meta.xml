@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>67.0</apiVersion>
+    <description>Dispatcher screen for looking up a delivery. Read only.</description>
+    <environments>Default</environments>
+    <interviewLabel>Delivery Assistant {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Delivery Assistant</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <screens>
+        <name>Ask</name>
+        <label>Ask</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Lookup</targetReference>
+        </connector>
+        <fields>
+            <name>Prompt</name>
+            <fieldText>&lt;p&gt;Look up a delivery for a customer. This does not change any record.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Delivery_Number</name>
+            <dataType>String</dataType>
+            <fieldText>Delivery number</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>For example, DLV-0005. Leave blank to search by customer name.</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Customer_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Customer name</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>Exact name, or part of it, such as Northwind.</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Show_Answer</name>
+        <label>Answer</label>
+        <locationX>176</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Answer_Text</name>
+            <fieldText>&lt;p&gt;{!Lookup.answer}&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Ask</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Lookup</name>
+        <label>Lookup</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <connector>
+            <targetReference>Show_Answer</targetReference>
+        </connector>
+        <flowName>Get_Delivery</flowName>
+        <inputAssignments>
+            <name>customerName</name>
+            <value>
+                <elementReference>Customer_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <name>deliveryNumber</name>
+            <value>
+                <elementReference>Delivery_Number</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>

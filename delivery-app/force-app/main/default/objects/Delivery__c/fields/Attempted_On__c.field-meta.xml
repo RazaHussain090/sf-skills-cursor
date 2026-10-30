@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attempted_On__c</fullName>
+    <inlineHelpText>Filled when the driver records an attempt and the delivery is not complete.</inlineHelpText>
+    <label>Attempted On</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>DateTime</type>
+</CustomField>

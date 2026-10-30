@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Live updates" icon-name="utility:notification">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <p class="slds-text-body_small slds-text-color_weak slds-m-bottom_small">{statusText}</p>
+
+            <template lwc:if={errorMessage}>
+                <p class="slds-text-color_error slds-m-bottom_small">{errorMessage}</p>
+            </template>
+
+            <template lwc:if={hasEvents}>
+                <ul class="slds-has-dividers_bottom-space">
+                    <template for:each={visibleEvents} for:item="item">
+                        <li key={item.key} class="slds-item slds-p-vertical_x-small">
+                            <p class="slds-text-body_small">
+                                <lightning-formatted-date-time value={item.createdDate} hour="2-digit" minute="2-digit" second="2-digit"></lightning-formatted-date-time>
+                            </p>
+                            <p>
+                                <span class="slds-text-title_bold">{item.deliveryNumber}</span>
+                                <span class="slds-m-left_x-small">{item.status}</span>
+                            </p>
+                            <p>{item.message}</p>
+                            <template lwc:if={item.coordinates}>
+                                <p class="slds-text-body_small">{item.coordinates}</p>
+                            </template>
+                            <template lwc:if={item.navigationUrl}>
+                                <a href={item.navigationUrl} target="_blank" rel="noopener noreferrer">Directions</a>
+                            </template>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+
+            <template lwc:if={showEmpty}>
+                <p class="slds-text-color_weak">{emptyText}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

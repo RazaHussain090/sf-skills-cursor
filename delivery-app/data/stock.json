@@ -1,0 +1,60 @@
+{
+  "records": [
+    {
+      "attributes": { "type": "Stock__c", "referenceId": "Stock_Towels" },
+      "Warehouse__c": "@Warehouse_Main",
+      "Product__c": "@Product_Towels",
+      "Quantity_On_Hand__c": 40,
+      "Bin__c": "A-12"
+    },
+    {
+      "attributes": { "type": "Stock__c", "referenceId": "Stock_Gloves" },
+      "Warehouse__c": "@Warehouse_Main",
+      "Product__c": "@Product_Gloves",
+      "Quantity_On_Hand__c": 24,
+      "Bin__c": "B-02"
+    },
+    {
+      "attributes": { "type": "Stock__c", "referenceId": "Stock_Screws" },
+      "Warehouse__c": "@Warehouse_Main",
+      "Product__c": "@Product_Screws",
+      "Quantity_On_Hand__c": 5,
+      "Bin__c": "C-04"
+    },
+    {
+      "attributes": { "type": "Stock__c", "referenceId": "Stock_Paper" },
+      "Warehouse__c": "@Warehouse_Main",
+      "Product__c": "@Product_Paper",
+      "Quantity_On_Hand__c": 30,
+      "Bin__c": "A-04"
+    },
+    {
+      "attributes": { "type": "Stock__c", "referenceId": "Stock_Notebooks" },
+      "Warehouse__c": "@Warehouse_Main",
+      "Product__c": "@Product_Notebooks",
+      "Quantity_On_Hand__c": 18,
+      "Bin__c": "A-05"
+    },
+    {
+      "attributes": { "type": "Stock__c", "referenceId": "Stock_Coffee" },
+      "Warehouse__c": "@Warehouse_Main",
+      "Product__c": "@Product_Coffee",
+      "Quantity_On_Hand__c": 12,
+      "Bin__c": "D-01"
+    },
+    {
+      "attributes": { "type": "Stock__c", "referenceId": "Stock_Bibs" },
+      "Warehouse__c": "@Warehouse_Supply",
+      "Product__c": "@Product_Bibs",
+      "Quantity_On_Hand__c": 20,
+      "Bin__c": "S-01"
+    },
+    {
+      "attributes": { "type": "Stock__c", "referenceId": "Stock_Gloves_Supply" },
+      "Warehouse__c": "@Warehouse_Supply",
+      "Product__c": "@Product_Gloves",
+      "Quantity_On_Hand__c": 4,
+      "Bin__c": "S-02"
+    }
+  ]
+}
