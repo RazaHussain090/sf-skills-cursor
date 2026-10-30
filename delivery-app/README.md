@@ -65,21 +65,123 @@ flowchart TB
 
 The warehouse records are the shelf and the pick list. `DeliveryLocationTrigger` publishes a ping after each location row is inserted. `DeliveryTrigger` publishes after a delivery status changes. The MCP server calls the same REST resource and does not post location or status.
 
-## Salesforce DX Project: Next Steps
+## Create a scratch org and deploy
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+These steps create an empty scratch org, push this project into it, grant access, and load the sample warehouse and deliveries. Run them from the project root, the folder that contains `sfdx-project.json`.
 
-## How Do You Plan to Deploy Your Changes?
+You need the [Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm) (`sf`) and a Dev Hub. In the Dev Hub org, Setup → Dev Hub must be enabled, and the hub must be allowed to create scratch orgs with Einstein and Agentforce. The definition file `config/agentforce-scratch-def.json` turns those features on. The org lasts 30 days. After that, create another one with the same commands.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+### 1. Log in to the Dev Hub
 
-## Configure Your Salesforce DX Project
+```bash
+sf org login web --set-default-dev-hub --alias devhub
+```
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+A browser opens. Sign in as a user who can create scratch orgs. The alias `devhub` is only a local name for that login. Later commands use it as the hub that owns the scratch org.
 
-## Read All About It
+### 2. Create the scratch org
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+```bash
+sf org create scratch --definition-file config/agentforce-scratch-def.json --alias delivery-agent --duration-days 30 --set-default
+```
+
+Salesforce provisions a new Developer org named Delivery Management Agent and prints a username such as `test-something@example.com`. The alias `delivery-agent` is how every later command refers to it. `--set-default` makes that alias the default target, so you can omit `--target-org` if you want. Creation often takes a few minutes.
+
+If the alias is already in use, pick another name, for example `delivery-agent-2`, and use that name in the commands below.
+
+`config/project-scratch-def.json` creates a Developer org without Einstein. Use it only when the Dev Hub cannot enable Agentforce. The Delivery Assistant bundle in this project then fails to deploy. The warehouse, delivery, and Place Order metadata can still deploy to that org if the agent bundle is left out of the deploy.
+
+### 3. Deploy the project
+
+```bash
+sf project deploy start --target-org delivery-agent
+```
+
+This pushes `force-app`: the warehouse, product, stock, driver, and delivery objects, the Delivery Management app, the Place Order tab, Apex, flows, and the Delivery Assistant. Wait until the command reports a successful deploy. The first deploy can take several minutes.
+
+To run the Apex tests as part of the same deploy:
+
+```bash
+sf project deploy start --target-org delivery-agent --test-level RunLocalTests
+```
+
+### 4. Assign the permission set
+
+```bash
+sf org assign permset --name Delivery_Management --target-org delivery-agent
+```
+
+The scratch org user can sign in without this, and still cannot open the app. `Delivery_Management` grants the app, the tabs (including Place Order), the objects, and the Apex classes `DeliveryTracking`, `DeliveryRest`, and `OrderCatalog`. It does not grant Agentforce. The flows `Get_Delivery` and `Delivery_Assistant` are included, and the agent still will not open until the next step.
+
+### 5. Assign Agentforce so the assistant can run
+
+The scratch definition enables Einstein and the agent platform. It does not put those licenses on the user. Assign the licenses first, then the permission sets. These are standard Salesforce sets created with the org. They are not files in this project.
+
+```bash
+sf org assign permsetlicense --name EinsteinGPTCopilotPsl --name AgentPlatformBuilderPsl --name EinsteinGPTPromptTemplatesPsl --target-org delivery-agent
+sf org assign permset --name CopilotSalesforceUser --name AgentPlatformBuilder --name EinsteinGPTPromptTemplateUser --target-org delivery-agent
+```
+
+| License | Permission set | What it lets you do |
+| --- | --- | --- |
+| `EinsteinGPTCopilotPsl` (Agentforce Default) | `CopilotSalesforceUser` (Access Agentforce Default Agent) | Open the agent and ask it a question |
+| `AgentPlatformBuilderPsl` | `AgentPlatformBuilder` | Open Agentforce Builder and test the Delivery Assistant |
+| `EinsteinGPTPromptTemplatesPsl` | `EinsteinGPTPromptTemplateUser` | Let the agent run its prompt templates |
+
+Skip this step only when you used `config/project-scratch-def.json` and are not deploying the agent.
+
+### 6. Load the sample data
+
+```bash
+sf data import tree --plan data/sample-data-plan.json --target-org delivery-agent
+```
+
+The plan inserts records in this order, because later files point at earlier ones:
+
+| File | What it loads |
+| --- | --- |
+| `data/drivers.json` | Five drivers: Alex Rivera, Jordan Lee, Sam Patel, Riley Chen, Morgan Blake |
+| `data/warehouses.json` | Austin Main (`100 Warehouse Rd`) and Supply Court (`18 Supply Court`) |
+| `data/products.json` | Seven products, including Paper Towels (`PT-100`) and Dental Bibs (`DN-600`) |
+| `data/deliveries.json` | Ten deliveries. Cedar School is In Transit from Austin Main |
+| `data/stock.json` | Shelf counts and bins. Screws at Austin Main and exam gloves at Supply Court are at 5 or below |
+| `data/delivery-lines.json` | Pick lines for the warehouse deliveries |
+
+On a new org the auto-numbers start at `DLV-0000`. Northwind Market is `DLV-0000`. Cedar School is `DLV-0004`. Lakeside Bakery and West End Florist have no warehouse, because those pickups are not from Austin Main or Supply Court.
+
+Run the import once. Running it again inserts a second copy of the drivers, products, warehouses, and deliveries.
+
+### 7. Open the org
+
+```bash
+sf org open --target-org delivery-agent
+```
+
+To land on Place Order:
+
+```bash
+sf org open --target-org delivery-agent --path /lightning/n/Place_Order
+```
+
+In the app launcher, open **Delivery Management**. The tabs are Place Order, Deliveries, Drivers, Warehouses, Products, Stock, Delivery Lines, and Delivery Assistant.
+
+Check these after the import:
+
+- **Place Order** lists products that are on hand. Adding Paper Towels chooses Austin Main. Dental Bibs stay visible and cannot be added to that order, because they are only at Supply Court.
+- **Stock** has an All Stock list and a Low Stock list.
+- **Deliveries** shows `DLV-0004` for Cedar School, In Transit, fulfillment Ready, driver Jordan Lee.
+- **Delivery Assistant**, in Agentforce Builder, can answer “Where is the Cedar School delivery?” after the licenses and permission sets in step 5 are assigned.
+
+The public customer site is not created by this deploy. Place Order is a tab inside the app so the order component can be tested first.
+
+### Use the org again later
+
+```bash
+sf org list
+sf org open --target-org delivery-agent
+sf org display --target-org delivery-agent
+```
+
+`sf org list` shows the alias, the username, and the expiration date. `sf org display` shows the instance URL and the remaining days.
+
+The `delivery-pull` MCP server reads this org through the Salesforce CLI. In `.cursor/mcp.json`, `DELIVERY_TARGET_ORG` must be the alias from step 2. The file already uses `delivery-agent`. Change it if you chose a different alias, then restart the MCP server in Cursor.
